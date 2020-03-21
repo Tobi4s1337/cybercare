@@ -22,11 +22,11 @@ router.post('/priority', (request, response) => {
 		if (request.body.Digits.length === 5) {
 			console.log('redirecting to record');
 			response.type('text/xml');
-			response.redirect('/voice/record');
+			response.redirect('http://212.8.251.192:3001/voice/record');
 		} else {
 			console.log('redirecting to postal');
 			response.type('text/xml');
-			response.redirect('/voice/postal');
+			response.redirect('http://212.8.251.192:3001/voice/postal');
 		}
 	} else {
 		response.type('text/xml');
