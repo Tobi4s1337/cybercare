@@ -13,6 +13,7 @@ const express = require('express'),
 //REQUIRING ROUTES
 const indexRoutes = require('./routes/indexRoutes');
 const placeRoutes = require('./routes/placeRoutes');
+const twilioRoutes = require('./routes/twilioRoutes');
 
 const url = process.env.DATABASEURL || 'mongodb://localhost/cybercare';
 mongoose.set('useCreateIndex', true);
@@ -33,6 +34,7 @@ app.use(
 );
 
 app.use('/', indexRoutes);
+app.use('/voice', twilioRoutes);
 app.use('/:id', placeRoutes);
 
 app.listen(process.env.PORT || 3000, function() {
