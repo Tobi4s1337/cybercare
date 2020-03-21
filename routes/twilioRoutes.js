@@ -2,7 +2,6 @@ const express = require('express');
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const router = express.Router();
 
-
 router.post('/record', (request, response) => {
 	// Use the Twilio Node.js SDK to build an XML response
 	const twiml = new VoiceResponse();
@@ -11,15 +10,17 @@ router.post('/record', (request, response) => {
 	const gatherUrgency = twiml.gather({
 		numDigits: 1
 	});
-	gatherUrgency.say({
+	gatherUrgency.say(
+		{
 			voice: 'woman',
 			language: 'de-DE'
 		},
 		'Geben tippen sie bitte ihre postleitzahl ein.'
 	);
 
-	if (request.body.Digits.length === 5) {
-		twiml.say({
+	if (request.body.Digits) {
+		twiml.say(
+			{
 				voice: 'woman',
 				language: 'de-DE'
 			},
@@ -34,7 +35,6 @@ router.post('/record', (request, response) => {
 
 		// End the call with <Hangup>
 		twiml.hangup();
-
 	} else {
 		// If the user doesn't enter input, loop
 		twiml.redirect('../record');
