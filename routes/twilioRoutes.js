@@ -3,7 +3,7 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const path = require('path');
 const router = express.Router();
 
-router.post('/record', (request, response) => {
+router.post('/priority', (request, response) =>{
 	// Use the Twilio Node.js SDK to build an XML response
 	const twiml = new VoiceResponse();
 
@@ -19,9 +19,25 @@ router.post('/record', (request, response) => {
 		'Wie dringend ist ihr problem auf einer skala von 1 bis 5?'
 	);
 
-	//Ask for postcode
+	// If the user entered digits, process their request
+	if (request.body.Digits) {
+		console.log(request.body.Digits)
+		
+		twiml.redirect('/voice/postal');
+		
+	} else {
+		// If no input was sent, use the <Gather> verb to collect user input
+		gather();
+	}		
 
-	const gather_postcode = twiml.gather({ numDigits: 1});
+
+}) 
+
+router.post('/postal', (request, response) => {
+	// Use the Twilio Node.js SDK to build an XML response
+	const twiml = new VoiceResponse();
+
+	const gather_postcode = twiml.gather({ numDigits: 5});
 	gather_postcode.say(
 		{
 			voice: 'woman',
@@ -30,8 +46,22 @@ router.post('/record', (request, response) => {
 		'Bitte geben sie ihre Postleitzahl ein.'
 	);
 
-	//If the user doesn't enter input, loop
-	twiml.redirect('/voice/record');
+	// If the user entered digits, process their request
+	if (request.body.Digits) {
+		console.log(request.body.Digits)
+
+		twiml.redirect('/voice/record');
+
+	} else {
+		// If no input was sent, use the <Gather> verb to collect user input
+		gather();
+	}		
+
+})
+
+router.post('/record', (request, response) => {
+	// Use the Twilio Node.js SDK to build an XML response
+	const twiml = new VoiceResponse();
 
 	twiml.say(
 		{
