@@ -27,6 +27,9 @@ router.post('/priority', (request, response) => {
 			twiml.redirect('/voice/postal');
 		}
 	}
+
+	response.type('text/xml');
+	response.send(twiml.toString());
 });
 
 router.post('/postal', (request, response) => {
@@ -49,6 +52,9 @@ router.post('/postal', (request, response) => {
 		console.log(request.body.Digits);
 		twiml.redirect('/voice/record');
 	}
+
+	response.type('text/xml');
+	response.send(twiml.toString());
 });
 
 router.post('/record', (request, response) => {
