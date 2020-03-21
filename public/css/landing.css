@@ -9,10 +9,16 @@ div.sign-up {
 	background-color: #b7b7b7 !important;
 }
 
+div.hint {
+	background-color: white !important;
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
 div.welcome-wrapper {
 	width: 100%;
 	height: 100%;
-	position: relative;
 }
 
 div.text {
@@ -32,4 +38,88 @@ span.phone-svg {
 	left: -80px;
 	top: 26%;
 	max-height: 250px;
+}
+
+div.help-buttons {
+	height: 100%;
+	width: 55%;
+	float: right;
+	position: relative;
+}
+
+.want-to-help,
+.requires-help {
+	display: block;
+	position: absolute;
+	right: 0px;
+}
+
+.want-to-help {
+	top: 120px;
+}
+
+.requires-help {
+	bottom: 54px;
+}
+
+.want-to-help::before,
+.requires-help::before {
+	content: '';
+	position: absolute;
+	width: 372px;
+	height: 1px;
+	background: black;
+	top: 18px;
+	left: -520px;
+	border: 0;
+	height: 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.requires-help::before {
+	left: -486px;
+	width: 338px!Important;
+}
+
+div.welcome {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	height: 100%;
+	width: 90%;
+}
+
+.cybercare-button {
+	padding-left: 0.7em;
+	padding-right: 0.7em;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	color: #000000 !important;
+	border-color: #b2b2b2;
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	font-size: 20px;
+	font-weight: 500;
+	font-family: 'Open Sans', 'Arial', sans-serif;
+	letter-spacing: 0.13em;
+	line-height: 1.7em !important;
+}
+
+.cybercare-button:hover {
+	cursor: pointer;
+}
+
+#map {
+	width: 100%;
+	height: 800px;
+}
+
+div.map-wrapper {
+	background-color: #b7b7b7 !important;
+	width: 100%;
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
