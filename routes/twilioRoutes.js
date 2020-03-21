@@ -20,8 +20,10 @@ router.post('/priority', (request, response) => {
 	if (request.body.Digits) {
 		console.log(request.body.Digits);
 		if (request.body.Digits.length === 5) {
+			console.log('redirecting to record');
 			twiml.redirect('/voice/record');
 		} else {
+			console.log('redirecting to postal');
 			twiml.redirect('/voice/postal');
 		}
 	}
