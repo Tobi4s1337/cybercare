@@ -21,10 +21,10 @@ router.post('/priority', (request, response) => {
 		console.log(request.body.Digits);
 		if (request.body.Digits.length === 5) {
 			console.log('redirecting to record');
-			twiml.redirect('/voice/record');
+			twiml.redirect('../record');
 		} else {
 			console.log('redirecting to postal');
-			twiml.redirect('/voice/postal');
+			twiml.redirect('../postal');
 		}
 	}
 
@@ -34,6 +34,7 @@ router.post('/priority', (request, response) => {
 
 router.post('/postal', (request, response) => {
 	// Use the Twilio Node.js SDK to build an XML response
+	console.log('POSTAL');
 	const twiml = new VoiceResponse();
 
 	const gatherPostcode = twiml.gather({ numDigits: 5 });
@@ -48,7 +49,7 @@ router.post('/postal', (request, response) => {
 	// If the user entered digits, process their request
 	if (request.body.Digits) {
 		console.log(request.body.Digits);
-		twiml.redirect('/voice/record');
+		twiml.redirect('../record');
 	}
 
 	response.type('text/xml');
