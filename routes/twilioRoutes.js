@@ -21,10 +21,10 @@ router.post('/priority', (request, response) => {
 		console.log(request.body.Digits);
 		if (request.body.Digits.length === 5) {
 			console.log('redirecting to record');
-			twiml.redirect('http://212.8.251.192:3001/voice/record');
+			gatherUrgency.redirect('http://212.8.251.192:3001/voice/record');
 		} else {
 			console.log('redirecting to postal');
-			twiml.redirect('http://212.8.251.192:3001/voice/postal');
+			gatherUrgency.redirect('http://212.8.251.192:3001/voice/postal');
 		}
 	}
 
