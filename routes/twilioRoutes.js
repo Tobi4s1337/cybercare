@@ -28,6 +28,9 @@ router.post('/priority', (request, response) => {
 			response.type('text/xml');
 			response.redirect('/voice/postal');
 		}
+	} else {
+		response.type('text/xml');
+		response.send(twiml.toString());
 	}
 });
 
