@@ -21,15 +21,14 @@ router.post('/priority', (request, response) => {
 		console.log(request.body.Digits);
 		if (request.body.Digits.length === 5) {
 			console.log('redirecting to record');
-			gatherUrgency.redirect('http://212.8.251.192:3001/voice/record');
+			response.type('text/xml');
+			response.redirect('/voice/record');
 		} else {
 			console.log('redirecting to postal');
-			gatherUrgency.redirect('http://212.8.251.192:3001/voice/postal');
+			response.type('text/xml');
+			response.redirect('/voice/postal');
 		}
 	}
-
-	response.type('text/xml');
-	response.send(twiml.toString());
 });
 
 router.post('/postal', (request, response) => {
