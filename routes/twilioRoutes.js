@@ -3,16 +3,9 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const path = require('path');
 const router = express.Router();
 
-// Returns TwiML which prompts the caller to record a message
-router.get('/music', (req, res) => {
-	res.sendFile(path.resolve('public/corona.mp3'));
-});
-
 router.post('/record', (request, response) => {
 	// Use the Twilio Node.js SDK to build an XML response
 	const twiml = new VoiceResponse();
-
-	twiml.play('http://212.8.251.192:3001/voice/music');
 
 	twiml.say(
 		{
