@@ -1,9 +1,9 @@
 const express = require('express');
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
-const path = require('path');
 const router = express.Router();
 
 router.post('/priority', (request, response) => {
+	console.log('POST REQUEST PRIORITY');
 	// Use the Twilio Node.js SDK to build an XML response
 	const twiml = new VoiceResponse();
 
