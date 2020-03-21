@@ -7,6 +7,32 @@ router.post('/record', (request, response) => {
 	// Use the Twilio Node.js SDK to build an XML response
 	const twiml = new VoiceResponse();
 
+	//Ask for urgency of response 
+	//Use the <gather> verb to collect user input
+	
+	const gather_urgency = twiml.gather({ numDigits: 1});
+	gather_urgency.say(
+		{
+			voice: 'woman',
+			language: 'de-DE'
+		},
+		'Wie dringend ist ihr problem auf einer skala von 1 bis 5?'
+	);
+
+	//Ask for postcode
+
+	const gather_postcode = twiml.gather({ numDigits: 1});
+	gather_postcode.say(
+		{
+			voice: 'woman',
+			language: 'de-DE'
+		},
+		'Bitte geben sie ihre Postleitzahl ein.'
+	);
+
+	//If the user doesn't enter input, loop
+	twiml.redirect('/voice/record');
+
 	twiml.say(
 		{
 			voice: 'woman',
