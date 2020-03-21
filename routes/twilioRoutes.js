@@ -15,8 +15,6 @@ router.post('/priority', (request, response) => {
 		},
 		'Wie dringend ist ihr problem auf einer skala von 1 bis 5?'
 	);
-	// If the user doesn't enter input, loop
-	twiml.redirect('/voice/priority');
 
 	// If the user entered digits, process their request
 	if (request.body.Digits) {
@@ -44,8 +42,6 @@ router.post('/postal', (request, response) => {
 		},
 		'Bitte geben sie ihre Postleitzahl ein.'
 	);
-	// If the user doesn't enter input, loop
-	twiml.redirect('/voice/postal');
 
 	// If the user entered digits, process their request
 	if (request.body.Digits) {
