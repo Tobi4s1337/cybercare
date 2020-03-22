@@ -1,0 +1,27 @@
+footer {
+	background-color: #b7b7b7 !important;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+footer a {
+	color: #333333;
+	transition: all .4s ease-in-out;
+	font-size: 1em;
+	text-decoration: none;
+	font-weight: 600;
+	font-family: 'Open Sans', 'Arial', sans-serif;
+	letter-spacing: 0.13em;
+}
+
+footer a:hover {
+	color: #333333;
+	transition: all .4s ease-in-out;
+	font-size: 1em;
+	text-decoration: none;
+	opacity: 0.7;
+}
+
+span.hackathon-logo img {
+	max-height: 54px;
+}
