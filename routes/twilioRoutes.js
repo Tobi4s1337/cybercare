@@ -33,7 +33,7 @@ router.post('/record', (req, res) => {
 				voice: 'Polly.Vicki',
 				language: 'de-DE'
 			},
-			'Geben tippen sie bitte ihre postleitzahl ein.'
+			'Geben sie bitte ihre postleitzahl ein.'
 		);
 	}
 
