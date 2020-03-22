@@ -10,7 +10,7 @@ router.post('/record', (req, res) => {
 	if (req.body.Digits) {
 		console.log(req.body.Digits);
 		twiml.say({
-				voice: 'woman',
+				voice: 'Polly.Vicki',
 				language: 'de-DE'
 			},
 			'Bitte schildern sie Ihr Problem und sagen sie wie dringend sie hilfe benötigen'
