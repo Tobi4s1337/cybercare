@@ -67,7 +67,8 @@ router.post('/record', (req, res) => {
 		// Use <Record> to record and transcribe the caller's message
 		twiml.record({
 			transcribeCallback: '/voice/transcribe',
-			maxLength: 30
+			maxLength: 30,
+			language: 'de-DE'
 		});
 
 		// End the call with <Hangup>
@@ -93,15 +94,13 @@ router.post('/record', (req, res) => {
 			{
 				_id: req.body.CallSid,
 				postalCode: req.body.Digits,
-				phoneNumber: req.body.phoneNumber
+				phoneNumber: req.body.Caller
 			},
 			(err) => {
 				if (err) console.log(err);
 				console.log('created new victim');
 			}
 		);
-	} else if (req.body.RecordingUrl) {
-		client.transcriptions('TRXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX').fetch().then((transcription) => {});
 	}
 
 	// Render the response as XML in reply to the webhook request
