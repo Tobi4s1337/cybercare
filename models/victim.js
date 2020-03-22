@@ -4,7 +4,8 @@ const victimSchema = mongoose.Schema({
 	_id: String,
 	email: {
 		type: String,
-		unique: true
+		unique: true,
+		sparse: true
 	},
 	postalCode: Number,
 	phoneNumber: String,
