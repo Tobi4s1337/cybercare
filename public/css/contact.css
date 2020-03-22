@@ -1,0 +1,20 @@
+.Test {
+    padding-top: 120px;
+}
+
+.jumbotron {
+    padding-top: 100px;
+}
+
+.link-button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 200px;
+}
+
+.btn {
+    width: 300px;
+    color: #fff;
+    background-color: #919599;
+    border-color: #0e0e0e;
+}
