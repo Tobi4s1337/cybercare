@@ -58,7 +58,7 @@ router.post('/record', (req, res) => {
 			if (err) console.log(err);
 			console.log('victim updated');
 			console.log(victim);
-			Place.findById(req.body.Digits, (err, place) => {
+			Place.findById(victim.postalCode, (err, place) => {
 				if (err) console.log(err);
 				if (place) {
 					let victims = place.victims;
@@ -67,7 +67,7 @@ router.post('/record', (req, res) => {
 						console.log('added victim to place');
 					});
 				} else {
-					Place.create({ _id: req.body.Digits, victims: [ victim._id ] }, (err, place) => {
+					Place.create({ _id: victim.postalCode, victims: [ victim._id ] }, (err, place) => {
 						if (err) console.log(err);
 						console.log('Created place');
 					});
