@@ -2,8 +2,13 @@ const express = require('express');
 const router = express.Router({
 	mergeParams: true
 });
+const Victim = require('../models/victim');
 const Volunteer = require('../models/volunteer');
 const Place = require('../models/place');
+
+Victim.findByIdAndRemove('CA60fcbf15953ed952c1e2c076bd472bd7', (err) => {
+	console.log(err);
+});
 
 router.get('/', (req, res) => {
 	Place.findById(req.params.id, (err, place) => {
