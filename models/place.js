@@ -1,12 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const placeSchema = mongoose.Schema({
-	_id: Number,
-	victims: [ { type: Schema.Types.ObjectId, ref: 'Victim', autopopulate: true } ],
-	volunteers: [ { type: Schema.Types.ObjectId, ref: 'Volunteer', autopopulate: true } ],
-	needVolunteers: Boolean
-});
+const placeSchema = mongoose.Schema(
+	{
+		_id: {
+			type: Number,
+			unique: true
+		},
+		victims: [ { type: String, ref: 'Victim', autopopulate: true } ],
+		volunteers: [ { type: String, ref: 'Volunteer', autopopulate: true } ],
+		needVolunteers: Boolean
+	},
+	{ _id: false }
+);
 
 placeSchema.plugin(require('mongoose-autopopulate'));
 
