@@ -48,8 +48,8 @@
       <span class="phone-svg">
         <img src="/img/phone.svg">
       </span>
-      <form action="/postalforward" type="post">
-        <input class="postalCode" type="text" name="postalCode" placeholder="Postleitzahl">
+      <form id="form" method="get">
+        <input class="postalCode" type="text" name="postalCode" onchange="document.getElementById('form').action = this.value;" placeholder="Postleitzahl">
       </form>
       <div class="help-buttons">
         <a class="cybercare-button want-to-help">WILL HELFEN</a>
