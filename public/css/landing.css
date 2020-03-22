@@ -29,7 +29,7 @@ div.text {
 
 span.phone-svg img {
 	width: 340px;
-	transform: rotate(35deg);
+	transform: rotate(33deg);
 	max-height: 250px;
 }
 
@@ -66,7 +66,7 @@ div.help-buttons {
 .requires-help::before {
 	content: '';
 	position: absolute;
-	width: 372px;
+	width: 412px;
 	height: 1px;
 	background: black;
 	top: 18px;
@@ -77,9 +77,27 @@ div.help-buttons {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+input.postalCode {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	border-radius: 25px;
+	border-color: white;
+	background: white;
+	padding: 20px;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	text-align: center;
+	width: 200px;
+}
+
 .requires-help::before {
 	left: -486px;
-	width: 338px!Important;
+	width: 378px;
 }
 
 div.welcome {

@@ -5,7 +5,7 @@ const router = express.Router();
 router.post('/record', (request, response) => {
 	// Use the Twilio Node.js SDK to build an XML response
 	const twiml = new VoiceResponse();
-
+	console.log(request.body);
 	if (request.body.Digits) {
 		console.log(request.body.Digits);
 		twiml.say(
