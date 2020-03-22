@@ -21,6 +21,10 @@ span.sign-up input {
 	margin-right: 10px;
 }
 
+audio {
+	max-width: 100%;
+}
+
 #cardRow {
 	width: 100%;
 }
