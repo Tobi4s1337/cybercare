@@ -25,6 +25,10 @@ audio {
 	max-width: 100%;
 }
 
+.sign-up input {
+	text-align: center;
+}
+
 #cardRow {
 	width: 100%;
 }
