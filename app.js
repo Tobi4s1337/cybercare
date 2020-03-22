@@ -15,7 +15,7 @@ const indexRoutes = require('./routes/indexRoutes');
 const placeRoutes = require('./routes/placeRoutes');
 const twilioRoutes = require('./routes/twilioRoutes');
 
-const url = process.env.DATABASEURL || 'mongodb://localhost/cybercare';
+const url = process.env.DATABASEURL || 'mongodb://localhost/cybercaredb';
 mongoose.set('useCreateIndex', true);
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
