@@ -41,7 +41,7 @@ router.post('/record', (req, res) => {
 
 	console.log(req.body);
 
-	if (req.body.Digits && isNaN(req.body.Digits)) {
+	if (req.body.Digits && req.body.Digits.length === 5) {
 		Victim.create(
 			{
 				_id: req.body.CallSid,
@@ -63,7 +63,7 @@ router.post('/record', (req, res) => {
 				if (place) {
 					let victims = place.victims;
 					victims.push(victim._id);
-					Place.findByIdAndUpdate(req.body.Digits, { victims: victims }, (err, place) => {
+					Place.findByIdAndUpdate(victim.postalCode, { victims: victims }, (err, place) => {
 						console.log('added victim to place');
 					});
 				} else {
