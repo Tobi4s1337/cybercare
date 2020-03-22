@@ -14,6 +14,7 @@
     <div class="card-deck">
         <div class="row">
             <% for (let i = 0; i < place.victims.length; i++){ %>
+                <div class="col-md-4">
             <div class="card border-secondary mb-4 col-md-4">
                 <div class="card-header">Postleitzahl: <%= place.victims[i].postalCode %></div>
                 <span class="badge badge-warning">Ausstehend</span>
@@ -40,6 +41,7 @@
                 <div class="card-footer text-muted">
                     <%= place.victims[i].createdAt %>
                 </div>
+            </div>
             </div>
             <% } %>
         </div>
