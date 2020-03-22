@@ -2,10 +2,7 @@ const mongoose = require('mongoose');
 
 const victimSchema = mongoose.Schema(
 	{
-		_id: {
-			type: String,
-			unique: true
-		},
+		_id: String,
 		email: {
 			type: String
 		},
@@ -18,7 +15,7 @@ const victimSchema = mongoose.Schema(
 			priority: Number
 		}
 	},
-	{ _id: false }
+	{ _id: false, timestamps: true }
 );
 
 module.exports = mongoose.model('Victim', victimSchema);

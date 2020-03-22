@@ -9,6 +9,30 @@
 </div>
 
 <div class="card-listing container">
+
+<% if(place && place.victims.length > 0){ %>
+    <div class="card-deck">
+        <div class="row">
+            <% for (let i = 0; i < place.victims.length; i++){ %>
+            <div class="card border-secondary mb-4">
+                <div class="card-header">Postleitzahl: <%= place.victims[i]._id %></div>
+                <span class="badge badge-danger">Dringend</span>
+                <div class="card-body">
+                    <h5 class="card-title">Audio abspielen</h5>
+                    <audio src="<%= place.victims[i].problem.audioFile %>" controls>
+                        Your browser does not support the audio element.
+                    </audio> 
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Telefon Nummer erfragen</a>
+                </div>
+                <div class="card-footer text-muted">
+                    <%= place.victims[i].createdAt %>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+<% else{ %>
     <div class="no-cards">
         <div class="card">
             <div class="card-body">
@@ -17,16 +41,18 @@
             </div>
         </div>
     </div>
+<% } %>
 
-    <div class="card-deck">
+</div>
+
+
+
 
         <div class="row">
-
             <div class="card border-secondary mb-4">
-                <div class="card-header">Postleitzahl: 66424</div>
+                <div class="card-header">Postleitzahl:</div>
                 <span class="badge badge-danger">Dringend</span>
                 <div class="card-body">
-
                     <h5 class="card-title">Audio abspielen</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <a href="#" class="btn btn-primary">Telefon Nummer erfragen</a>
@@ -66,7 +92,7 @@
             </div>
 
         </div>
-    </div>
-</div>
+
+
 
 <%- include ('partials/footer') %>

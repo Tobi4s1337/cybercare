@@ -3,10 +3,7 @@ const Schema = mongoose.Schema;
 
 const placeSchema = mongoose.Schema(
 	{
-		_id: {
-			type: Number,
-			unique: true
-		},
+		_id: Number,
 		victims: [ { type: String, ref: 'Victim', autopopulate: true } ],
 		volunteers: [ { type: String, ref: 'Volunteer', autopopulate: true } ],
 		needVolunteers: Boolean

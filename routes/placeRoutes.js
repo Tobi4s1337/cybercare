@@ -4,8 +4,18 @@ const Volunteer = require('../models/volunteer');
 const Place = require('../models/place');
 
 router.get('/', (req, res) => {
-	res.render('places', {
-		page: 'places'
+	Place.findById(req.params.id, (err, place) => {
+		if (err) console.log(err);
+		if (place) {
+			res.render('places', {
+				page: 'places',
+				place: place
+			});
+		} else {
+			res.render('places', {
+				page: 'places'
+			});
+		}
 	});
 });
 
