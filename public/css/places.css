@@ -1,0 +1,37 @@
+.sign-up-wrapper {
+	width: 100%;
+	margin-top: 56px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #b7b7b7;
+	text-align: center;
+}
+
+span.sign-up input {
+	padding: 6px 4px;
+}
+
+.sign-up {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.card {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.card-listing {
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+
+.badge {
+	border-radius: 0%;
+	padding-bottom: 8px;
+	padding-top: 8px;
+}
+
+.card-body {
+	text-align: center;
+}
