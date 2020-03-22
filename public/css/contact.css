@@ -26,3 +26,11 @@
     padding-top: 20px;
 
 }
+
+.dropdown-item {
+    width: 299px
+}
+
+.nummerbutton {
+    text-align: center;
+}

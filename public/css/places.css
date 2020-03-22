@@ -40,3 +40,11 @@ span.sign-up input {
 	padding-bottom: 8px;
 	padding-top: 8px;
 }
+
+.dropdown-item {
+	width: 299px
+}
+
+.nummerbutton {
+	text-align: center;
+}

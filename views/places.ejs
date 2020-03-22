@@ -10,20 +10,32 @@
 
 <div class="card-listing container">
 
-<% if(place && place.victims.length > 0){ %>
+    <% if(place && place.victims.length > 0){ %>
     <div class="card-deck">
         <div class="row">
             <% for (let i = 0; i < place.victims.length; i++){ %>
             <div class="card border-secondary mb-4">
-                <div class="card-header">Postleitzahl: <%= place.victims[i]._id %></div>
+                <div class="card-header">Postleitzahl: <%= place.victims[i].postalCode %></div>
                 <span class="badge badge-danger">Dringend</span>
                 <div class="card-body">
                     <h5 class="card-title">Audio abspielen</h5>
                     <audio src="<%= place.victims[i].problem.audioFile %>" controls>
                         Your browser does not support the audio element.
-                    </audio> 
+                    </audio>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Telefon Nummer erfragen</a>
+                    <div class="nummerbutton">
+                        <p>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                Nummer Anzeigen
+                            </a>
+                        </p>
+                    </div>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <%= place.victims[i].phoneNumber %>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer text-muted">
                     <%= place.victims[i].createdAt %>
@@ -32,7 +44,7 @@
             <% } %>
         </div>
     </div>
-<% } else { %>
+    <% } else { %>
     <div class="no-cards">
         <div class="card">
             <div class="card-body">
@@ -41,7 +53,7 @@
             </div>
         </div>
     </div>
-<% } %>
+    <% } %>
 
 </div>
 
