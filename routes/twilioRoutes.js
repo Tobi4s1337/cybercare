@@ -50,12 +50,13 @@ router.post('/record', (req, res) => {
 			},
 			(err) => {
 				if (err) console.log(err);
+				console.log('created new victim');
 			}
 		);
 	} else if (req.body.RecordingUrl) {
 		Victim.findByIdAndUpdate(req.body.CallSid, { problem: { audioFile: req.body.RecordingUrl } }, (err, victim) => {
 			if (err) console.log(err);
-			console.log('New victim created');
+			console.log('victim updated');
 			console.log(victim);
 			Place.findById(req.body.Digits, (err, place) => {
 				if (err) console.log(err);
