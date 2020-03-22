@@ -3,12 +3,7 @@ const mongoose = require('mongoose');
 const victimSchema = mongoose.Schema({
 	_id: String,
 	email: {
-		type: String,
-		trim: true,
-		index: {
-			unique: true,
-			partialFilterExpression: { email: { $type: 'string' } }
-		}
+		type: String
 	},
 	postalCode: Number,
 	phoneNumber: String,
