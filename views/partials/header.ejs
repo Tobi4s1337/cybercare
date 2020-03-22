@@ -24,6 +24,9 @@
   <link rel="stylesheet" href="/css/contact.css" type="text/css">
   <% } %>
 
+  <% if (page === "#") { %>
+  <link rel="stylesheet" href="/css/landing.css" type="text/css">
+  <% } %>
 
   <title>CYBERCARE</title>
 </head>
@@ -31,7 +34,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">CYBERCARE</a>
+      <a class="navbar-brand" href="/">CYBERCARE</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
