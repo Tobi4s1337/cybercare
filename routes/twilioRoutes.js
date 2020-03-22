@@ -1,13 +1,14 @@
 const express = require('express');
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const router = express.Router();
+const Victim = require('../models/victim');
+const Place = require('../models/place');
 
-router.post('/record', (request, response) => {
+router.post('/record', (req, res) => {
 	// Use the Twilio Node.js SDK to build an XML response
 	const twiml = new VoiceResponse();
-	console.log(request.body);
-	if (request.body.Digits) {
-		console.log(request.body.Digits);
+	if (req.body.Digits) {
+		console.log(req.body.Digits);
 		twiml.say(
 			{
 				voice: 'woman',
@@ -38,9 +39,45 @@ router.post('/record', (request, response) => {
 		);
 	}
 
+	console.log(req.body);
+
+	if (req.body.Digits && req.body.Digits.isNaN()) {
+		Victim.create(
+			{
+				_id: req.body.CallSid,
+				postalCode: req.body.Digits,
+				phoneNumber: req.body.phoneNumber
+			},
+			(err) => {
+				if (err) console.log(err);
+			}
+		);
+	} else if (req.body.RecordingUrl) {
+		Victim.findByIdAndUpdate(req.body.CallSid, { problem: { audioFile: req.body.RecordingUrl } }, (err, victim) => {
+			if (err) console.log(err);
+			console.log('New victim created');
+			console.log(victim);
+			Place.findById(req.body.Digits, (err, place) => {
+				if (err) console.log(err);
+				if (place) {
+					let victims = place.victims;
+					victims.push(victim._id);
+					Place.findByIdAndUpdate(req.body.Digits, { victims: victims }, (err, place) => {
+						console.log('added victim to place');
+					});
+				} else {
+					Place.create({ _id: req.body.Digits, victims: [ victim._id ] }, (err, place) => {
+						if (err) console.log(err);
+						console.log('Created place');
+					});
+				}
+			});
+		});
+	}
+
 	// Render the response as XML in reply to the webhook request
-	response.type('text/xml');
-	response.send(twiml.toString());
+	res.type('text/xml');
+	res.send(twiml.toString());
 });
 
 module.exports = router;
