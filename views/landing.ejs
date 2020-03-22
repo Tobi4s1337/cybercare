@@ -48,9 +48,9 @@
       <span class="phone-svg">
         <img src="/img/phone.svg">
       </span>
-
-      <input class="postalCode" type="text" placeholder="Postleitzahl">
-
+      <form action="/postalforward" type="post">
+        <input class="postalCode" type="text" name="postalCode" placeholder="Postleitzahl">
+      </form>
       <div class="help-buttons">
         <a class="cybercare-button want-to-help">WILL HELFEN</a>
         <a data-toggle="modal" data-target=".need-help-modal" class="cybercare-button requires-help">BRAUCHE HILFE</a>
