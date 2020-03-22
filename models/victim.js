@@ -4,8 +4,11 @@ const victimSchema = mongoose.Schema({
 	_id: String,
 	email: {
 		type: String,
-		unique: true,
-		sparse: true
+		trim: true,
+		index: {
+			unique: true,
+			partialFilterExpression: { email: { $type: 'string' } }
+		}
 	},
 	postalCode: Number,
 	phoneNumber: String,
