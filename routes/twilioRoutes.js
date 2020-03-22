@@ -46,7 +46,7 @@ router.post('/record', (req, res) => {
 			{
 				_id: req.body.CallSid,
 				postalCode: req.body.Digits,
-				phoneNumber: req.body.phoneNumber
+				phoneNumber: req.body.From
 			},
 			(err) => {
 				if (err) console.log(err);
