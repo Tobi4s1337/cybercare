@@ -9,12 +9,11 @@ router.post('/record', (req, res) => {
 	const twiml = new VoiceResponse();
 	if (req.body.Digits) {
 		console.log(req.body.Digits);
-		twiml.say(
-			{
+		twiml.say({
 				voice: 'woman',
 				language: 'de-DE'
 			},
-			'Bitte melden Sie Ihr Problem und sagen sie wie dringend sie hilfe benötigen'
+			'Bitte schildern sie Ihr Problem und sagen sie wie dringend sie hilfe benötigen'
 		);
 
 		// Use <Record> to record and transcribe the caller's message
@@ -30,9 +29,8 @@ router.post('/record', (req, res) => {
 		const gatherUrgency = twiml.gather({
 			numDigits: 5
 		});
-		gatherUrgency.say(
-			{
-				voice: 'woman',
+		gatherUrgency.say({
+				voice: 'Polly.Vicki',
 				language: 'de-DE'
 			},
 			'Geben tippen sie bitte ihre postleitzahl ein.'
@@ -42,8 +40,7 @@ router.post('/record', (req, res) => {
 	console.log(req.body);
 
 	if (req.body.Digits && req.body.Digits.length === 5) {
-		Victim.create(
-			{
+		Victim.create({
 				_id: req.body.CallSid,
 				postalCode: req.body.Digits,
 				phoneNumber: req.body.phoneNumber
@@ -54,7 +51,11 @@ router.post('/record', (req, res) => {
 			}
 		);
 	} else if (req.body.RecordingUrl) {
-		Victim.findByIdAndUpdate(req.body.CallSid, { problem: { audioFile: req.body.RecordingUrl } }, (err, victim) => {
+		Victim.findByIdAndUpdate(req.body.CallSid, {
+			problem: {
+				audioFile: req.body.RecordingUrl
+			}
+		}, (err, victim) => {
 			if (err) console.log(err);
 			console.log('victim updated');
 			console.log(victim);
@@ -63,11 +64,16 @@ router.post('/record', (req, res) => {
 				if (place) {
 					let victims = place.victims;
 					victims.push(victim._id);
-					Place.findByIdAndUpdate(victim.postalCode, { victims: victims }, (err, place) => {
+					Place.findByIdAndUpdate(victim.postalCode, {
+						victims: victims
+					}, (err, place) => {
 						console.log('added victim to place');
 					});
 				} else {
-					Place.create({ _id: victim.postalCode, victims: [ victim._id ] }, (err, place) => {
+					Place.create({
+						_id: victim.postalCode,
+						victims: [victim._id]
+					}, (err, place) => {
 						if (err) console.log(err);
 						console.log('Created place');
 					});
