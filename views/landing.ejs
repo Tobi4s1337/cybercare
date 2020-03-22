@@ -2,117 +2,125 @@
 
 
 <div class="modal fade need-help-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Hilfe anfordern</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form action="/signup" method="POST">
-                <div class="form-group">
-                  <label for="postalcode" class="col-form-label">Postleitzahl:</label>
-                  <input type="text" name="postalcode" class="form-control" id="postalcode">
-                </div>
-                <div class="form-group">
-                    <label for="phone" class="col-form-label">Telefonnummer:</label>
-                    <input type="text" name="phone" class="form-control" id="phone">
-                </div>
-                <div class="form-group">
-                    <label for="mobilePhone" class="col-form-label">Handynummer:</label>
-                    <input type="text" name="mobilePhone" class="form-control" id="mobilePhone">
-                </div>
-                <div class="form-group">
-                  <label for="message" class="col-form-label">Womit und wie dringend brauchen Sie Hilfe?:</label>
-                  <textarea class="form-control" id="message" name="message" style="min-height: 280px;"></textarea>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
-              <button type="button" class="btn btn-primary">Hilfe anfordern</button>
-            </div>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hilfe anfordern</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/signup" method="POST">
+          <div class="form-group">
+            <label for="postalcode" class="col-form-label">Postleitzahl:</label>
+            <input type="text" name="postalcode" class="form-control" id="postalcode">
           </div>
+          <div class="form-group">
+            <label for="phone" class="col-form-label">Telefonnummer:</label>
+            <input type="text" name="phone" class="form-control" id="phone">
+          </div>
+          <div class="form-group">
+            <label for="mobilePhone" class="col-form-label">Handynummer:</label>
+            <input type="text" name="mobilePhone" class="form-control" id="mobilePhone">
+          </div>
+          <div class="form-group">
+            <label for="message" class="col-form-label">Womit und wie dringend brauchen Sie Hilfe?:</label>
+            <textarea class="form-control" id="message" name="message" style="min-height: 280px;"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        <button type="button" class="btn btn-primary">Hilfe anfordern</button>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="modal fade provide-help-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Hilfe anbieten</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Recipient:</label>
-                  <input type="text" class="form-control" id="recipient-name">
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label">Message:</label>
-                  <textarea class="form-control" id="message-text"></textarea>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Send message</button>
-            </div>
+<div class="modal fade provide-help-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hilfe anbieten</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
           </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
     </div>
   </div>
+</div>
 
 <div class="sign-up">
-    <div class="container welcome-wrapper">
-        <div class="welcome">
-            <span class="phone-svg">
-                <img src="/img/phone.svg">
-            </span>
+  <div class="container welcome-wrapper">
+    <div class="welcome">
+      <span class="phone-svg">
+        <img src="/img/phone.svg">
+      </span>
 
-                <input class="postalCode" type="text" placeholder="Postleitzahl">
+      <input class="postalCode" type="text" placeholder="Postleitzahl">
 
-            <div class="help-buttons">
-                <a data-toggle="modal" data-target=".provide-help-modal" class="cybercare-button want-to-help">WILL HELFEN</a>
-                <a data-toggle="modal" data-target=".need-help-modal" class="cybercare-button requires-help">BRAUCHE HILFE</a>
-            </div>
-        </div>
+      <div class="help-buttons">
+        <a data-toggle="modal" data-target=".provide-help-modal" class="cybercare-button want-to-help">WILL HELFEN</a>
+        <a data-toggle="modal" data-target=".need-help-modal" class="cybercare-button requires-help">BRAUCHE HILFE</a>
+      </div>
     </div>
+  </div>
 </div>
 <div class="hint">
-    <div class="container">
-        <h3>DU BIST NICHT ALLEIN</h3>
-    </div>
+  <div class="container">
+    <h3>DU BIST NICHT ALLEIN</h3>
+  </div>
 </div>
 <div class="map-wrapper">
-    <div class="container">
-        <div id="map"></div>
-    </div>
+  <div class="container">
+    <div id="map"></div>
+  </div>
 </div>
 <div class="faq-wrapper">
-    <div class="container faq">
-        <h2>Fragen und Antworten</h2>
-        <div class="question">
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit?</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores fugiat pariatur, recusandae facere blanditiis repellendus expedita incidunt. Optio ipsam reiciendis nisi, fugiat non molestias distinctio debitis culpa perferendis et fuga!</p>
-        </div>
-        <div class="question">
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit?</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores fugiat pariatur, recusandae facere blanditiis repellendus expedita incidunt. Optio ipsam reiciendis nisi, fugiat non molestias distinctio debitis culpa perferendis et fuga!</p>
-        </div>
-        <div class="question">
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit?</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores fugiat pariatur, recusandae facere blanditiis repellendus expedita incidunt. Optio ipsam reiciendis nisi, fugiat non molestias distinctio debitis culpa perferendis et fuga!</p>
-        </div>
-        <div class="question">
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit?</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores fugiat pariatur, recusandae facere blanditiis repellendus expedita incidunt. Optio ipsam reiciendis nisi, fugiat non molestias distinctio debitis culpa perferendis et fuga!</p>
-        </div>
+  <div class="container faq">
+    <h2>Fragen und Antworten</h2>
+    <div class="question">
+      <h4>Was ist Cyber Care?</h4>
+      <p>Ganz einfach, Cyber Care verbindet Mitmenschen die nach hilfe suchen mit Feiwilligen aus ihrer Umgebung.</p>
     </div>
+    <div class="question">
+      <h4>Wie kann ich mitmachen?</h4>
+      <p>Falls du Mitmenschen aus deiner Umgebung helfen willst ist das ganz einfach. Gebe einfach deine Postleitzahl
+        ein und druecke ENTER. Jetzt sollte dir angezeigt werden ob jemend in deiner neahe hilfe braucht. Wenn momentan
+        niemand Hilfe benoetigt, hast du die option deine E-mail adresse zu hinterlassen und benarichtigt zu werden
+        sobald jemand hilfe benoetigt."</p>
+    </div>
+    <div class="question">
+      <h4>Wie kann ich nach hilfe fragen?</h4>
+      <p>Um hilfe zu beantragen kannst du entweder unsere Hotline anrufen und deine Postleitzahl hinterlassen und dein
+        Problem schildern oder ganz einfach das online Formula auf der Webseite ausfuellen. Sobald ein helfer in der
+        Naehe verfugbar ist werden wir versuchen euch miteinander zu verbinden.</p>
+    </div>
+    <div class="question">
+      <h4>Welche art hilfe kann ich beantragen?</h4>
+      <p>Du kannst jede art hilfe beantragen, bitte beruksichtige das Cyber Care eine freiwillige platfrom ist und alle
+        Freiwilligen die Wahl haben ob sie and deiner hilfestellung interessiert sind oder nicht. Stelle keine
+        unnoetigen antrage den hiermit wollen wir vorerst Menschen in der Corona Krise helfen die dringend Hilfe
+        benoetigen.</p>
+    </div>
+  </div>
 </div>
 
 
