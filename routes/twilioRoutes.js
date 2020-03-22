@@ -1,12 +1,8 @@
-require('dotenv').config();
 const express = require('express');
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const router = express.Router();
 const Victim = require('../models/victim');
 const Place = require('../models/place');
-const accountSid = 'AC1b3ea53ce52ee15a50d7672dc6b85416';
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);
 
 router.post('/transcribe', (req, res) => {
 	console.log(req.body);
