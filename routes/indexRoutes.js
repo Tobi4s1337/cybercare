@@ -15,7 +15,7 @@ router.get('/kontakt', function(req, res) {
 
 router.post('/postalforward', function(req, res) {
 	console.log(req.body.postalCode);
-	res.redirect('/' + req.body.postalCode);
+	res.redirect('https://cybercare.tobi4s.dev/' + req.body.postalCode);
 });
 
 module.exports = router;
