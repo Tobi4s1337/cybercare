@@ -21,6 +21,10 @@ span.sign-up input {
 	margin-right: 10px;
 }
 
+#cardRow {
+	width: 100%;
+}
+
 .card-listing {
 	padding-top: 20px;
 	padding-bottom: 30px;
@@ -42,7 +46,7 @@ span.sign-up input {
 }
 
 .dropdown-item {
-	width: 299px
+	width: 299px;
 }
 
 .nummerbutton {

@@ -12,7 +12,7 @@
 
     <% if(place && place.victims.length > 0){ %>
     <div class="card-deck">
-        <div class="row">
+        <div class="row" id="cardRow">
             <% for (let i = 0; i < place.victims.length; i++){ %>
                 <div class="col-md-4">
             <div class="card border-secondary mb-4">
@@ -23,7 +23,6 @@
                     <audio src="<%= place.victims[i].problem.audioFile %>" controls>
                         Your browser does not support the audio element.
                     </audio>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <div class="nummerbutton">
                         <p>
                             <a class="btn btn-primary" data-toggle="collapse" href="#collapse<%= i %>" role="button"
