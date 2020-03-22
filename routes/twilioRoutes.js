@@ -41,7 +41,7 @@ router.post('/record', (req, res) => {
 
 	console.log(req.body);
 
-	if (req.body.Digits && req.body.Digits.isNaN()) {
+	if (req.body.Digits && isNaN(req.body.Digits)) {
 		Victim.create(
 			{
 				_id: req.body.CallSid,
