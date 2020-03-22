@@ -5,10 +5,6 @@ router.get('/', function(req, res) {
 	res.render('landing', { page: 'landing' });
 });
 
-router.post('/faq', function(req, res) {
-	res.render('faq');
-});
-
 router.post('/impressum', function(req, res) {
 	res.render('impressum');
 });
